@@ -8,5 +8,7 @@ public class Test2 {
 
         Pet pet = context.getBean("myPet", Pet.class);
         pet.say();
+
+        context.close();
     }
 }
