@@ -11,9 +11,9 @@ public class Person {
 //    @Autowired
 //    @Qualifier("dog")
     private Pet pet;
-    @Value("${person.surName}")
+//    @Value("${person.surName}")
     private String surName;
-    @Value("${person.age}")
+//    @Value("${person.age}")
     private int age;
 
     @Autowired
