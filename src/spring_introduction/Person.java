@@ -1,14 +1,16 @@
 package spring_introduction;
 
+import org.springframework.beans.factory.annotation.Value;
+
 //@Component("personBean")
 public class Person {
 
     //    @Autowired
 //    @Qualifier("dog")
     private Pet pet;
-    //    @Value("${person.surName}")
+        @Value("${person.surName}")
     private String surName;
-    //    @Value("${person.age}")
+        @Value("${person.age}")
     private int age;
 
     //    @Autowired
