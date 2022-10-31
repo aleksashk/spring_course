@@ -13,15 +13,15 @@ public class Person {
     private String surName;
     private int age;
 
-//    @Autowired
-//    public Person(Pet pet) {
-//        System.out.println("Person bean is created");
-//        this.pet = pet;
-//    }
-
-    public Person() {
+    @Autowired
+    public Person(@Qualifier("catBean") Pet pet) {
         System.out.println("Person bean is created");
+        this.pet = pet;
     }
+
+//    public Person() {
+//        System.out.println("Person bean is created");
+//    }
 
     public void callYourPet() {
         System.out.println("Hello, my lovely PET!!!");
@@ -30,9 +30,9 @@ public class Person {
 
     //pet -> setPet
     //Pet -> setPet
-
-    @Autowired
-    @Qualifier("dog")
+//
+//    @Autowired
+//    @Qualifier("dog")
     public void setPet(Pet pet) {
         System.out.println("Class Person: SET pet");
         this.pet = pet;
