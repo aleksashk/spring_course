@@ -9,5 +9,7 @@ public class Test3 {
 //        Pet pet = new Dog();
         Person person = context.getBean("myPerson", Person.class);
         person.callYourPet();
+
+        context.close();
     }
 }
