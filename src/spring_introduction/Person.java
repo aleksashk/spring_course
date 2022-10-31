@@ -9,7 +9,7 @@ public class Person {
     private String surName;
     private int age;
 
-    @Autowired
+//    @Autowired
     public Person(Pet pet) {
         System.out.println("Person bean is created");
         this.pet = pet;
