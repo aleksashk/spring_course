@@ -3,7 +3,7 @@ package aop;
 import org.springframework.stereotype.Component;
 
 @Component
-public class UniLibrary extends AbstractLibrary{
+public class UniLibrary extends AbstractLibrary {
 
     @Override
     public void getBook() {
@@ -14,7 +14,8 @@ public class UniLibrary extends AbstractLibrary{
         System.out.println("Мы берём журнал из UniLibrary");
     }
 
-    public void returnBook() {
+    public String returnBook() {
         System.out.println("Мы возвращаем книгу в UniLibrary");
+        return "OK";
     }
 }
