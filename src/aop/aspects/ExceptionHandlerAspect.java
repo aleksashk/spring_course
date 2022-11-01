@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 public class ExceptionHandlerAspect {
     @Before("aop.aspects.MyPointCuts.allGetMethods()")
     public void getExceptionHandlingAdvice() {
-        System.out.println("beforeGetSecurityAdvice: ловим/обрабатываем исключение " +
+        System.out.println("beforeGetExceptionHandlingAdvice: ловим/обрабатываем исключение " +
                 "при попытке получить книгу/журнал");
     }
 }
