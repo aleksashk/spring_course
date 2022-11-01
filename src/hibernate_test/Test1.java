@@ -13,5 +13,9 @@ public class Test1 {
                 .buildSessionFactory();
 
         Session session = factory.getCurrentSession();
+
+        Employee emp = new Employee("Aleksandr", "Philimonov", "IT", 500);
+        session.beginTransaction();
+        session.save(emp);
     }
 }
