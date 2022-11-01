@@ -2,30 +2,33 @@ package hibernate_test.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="employees")
+@Table(name = "employees")
 public class Employee {
 
     @Id
-    @Column(name="id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private int id;
 
-    @Column(name="name")
+    @Column(name = "name")
     private String name;
 
-    @Column(name="surname")
+    @Column(name = "surname")
     private String surname;
 
-    @Column(name="department")
+    @Column(name = "department")
     private String department;
 
-    @Column(name="salary")
+    @Column(name = "salary")
     private int salary;
 
-    public Employee(){
+    public Employee() {
 
     }
 
