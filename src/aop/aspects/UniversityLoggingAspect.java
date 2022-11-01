@@ -1,13 +1,8 @@
 package aop.aspects;
 
-import aop.Student;
-import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
 import org.springframework.stereotype.Component;
-
-import java.util.List;
 
 @Component
 @Aspect
@@ -34,8 +29,8 @@ public class UniversityLoggingAspect {
 //                "списка студентов после работы метода getStudents");
 //    }
 
-    @AfterThrowing("execution(* getStudents())")
-    public void afterThrowingGetStudentsLoggingAdvice(){
-        System.out.println("afterThrowingGetStudentsLoggingAdvice: логируем выброс исключения");
+    @AfterThrowing(pointcut = "execution(* getStudents())", throwing = "exception")
+    public void afterThrowingGetStudentsLoggingAdvice(Throwable exception) {
+        System.out.println("afterThrowingGetStudentsLoggingAdvice: логируем выброс исключения " + exception);
     }
 }
