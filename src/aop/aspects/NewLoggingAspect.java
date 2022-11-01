@@ -12,9 +12,12 @@ public class NewLoggingAspect {
     @Around("execution(public String returnBook())")
     public Object aroundReturnBookLoggingAdvice(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
         System.out.println("aroundReturnBookLoggingAdvice: в библиотеку пытаются вернуть книгу");
-
-        proceedingJoinPoint.proceed();
+        long begin = System.currentTimeMillis();
         Object targetMethodResult = proceedingJoinPoint.proceed();
+        targetMethodResult = "Преступление и наказание";
+        long end = System.currentTimeMillis();
+        System.out.println("aroundReturnBookLoggingAdvice: метод returnBook " +
+                "выполнил работу за " + (end - begin) + " миллисекунд");
 
         System.out.println("aroundReturnBookLoggingAdvice: в библиотеку успешно возвращают книгу");
         return targetMethodResult;
