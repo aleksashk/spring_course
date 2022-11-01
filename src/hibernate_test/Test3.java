@@ -19,8 +19,12 @@ public class Test3 {
             session = factory.getCurrentSession();
             session.beginTransaction();
 
-            List<Employee> emps = session.createQuery("from Employee")
-                            .getResultList();
+//            List<Employee> emps = session.createQuery("from Employee")
+//                            .getResultList();
+//
+            List<Employee> emps = session.createQuery("from Employee " +
+                            "where name = 'Aleksandr'")
+                    .getResultList();
 
             for (Employee emp : emps) {
                 System.out.println(emp);
