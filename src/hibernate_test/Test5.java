@@ -7,24 +7,23 @@ import org.hibernate.cfg.Configuration;
 
 public class Test5 {
     public static void main(String[] args) {
-        SessionFactory factory = new Configuration()
+
+        try (SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")
                 .addAnnotatedClass(Employee.class)
-                .buildSessionFactory();
-
-        Session session;
-        try {
+                .buildSessionFactory()) {
+            Session session;
             session = factory.getCurrentSession();
             session.beginTransaction();
 
-            Employee emp = session.get(Employee.class, 1);
+//            Employee emp = session.get(Employee.class, 1);
 
-            session.delete(emp);
+//            session.delete(emp);
+            session.createQuery("delete from Employee " +
+                    "where name = 'Aleksandr'").executeUpdate();
             session.getTransaction().commit();
 
             System.out.println("Done!!!");
-        } finally {
-            factory.close();
         }
     }
 }
