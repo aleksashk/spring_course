@@ -17,5 +17,7 @@ public class Test1 {
         Employee emp = new Employee("Aleksandr", "Philimonov", "IT", 500);
         session.beginTransaction();
         session.save(emp);
+
+        session.getTransaction().commit();
     }
 }
