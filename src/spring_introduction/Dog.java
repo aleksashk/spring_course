@@ -2,8 +2,8 @@ package spring_introduction;
 
 import org.springframework.stereotype.Component;
 
-import javax.annotation.PostConstruct;
-import javax.annotation.PreDestroy;
+//import javax.annotation.PostConstruct;
+//import javax.annotation.PreDestroy;
 
 //@Component
 public class Dog implements Pet {
