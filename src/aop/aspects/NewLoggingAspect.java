@@ -1,5 +1,6 @@
 package aop.aspects;
 
+import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.springframework.stereotype.Component;
@@ -9,7 +10,13 @@ import org.springframework.stereotype.Component;
 public class NewLoggingAspect {
 
     @Around("execution(public String returnBook())")
-    public void aroundReturnBookLoggingAdvice(){
-        System.out.println("aroundReturnBookLoggingAdvice: в библиотеку возвращают книгу");
+    public Object aroundReturnBookLoggingAdvice(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
+        System.out.println("aroundReturnBookLoggingAdvice: в библиотеку пытаются вернуть книгу");
+
+        proceedingJoinPoint.proceed();
+        Object targetMethodResult = proceedingJoinPoint.proceed();
+
+        System.out.println("aroundReturnBookLoggingAdvice: в библиотеку успешно возвращают книгу");
+        return targetMethodResult;
     }
 }
