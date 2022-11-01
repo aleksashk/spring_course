@@ -1,7 +1,7 @@
 package aop.aspects;
 
+import aop.Book;
 import org.aspectj.lang.JoinPoint;
-import org.aspectj.lang.Signature;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.reflect.MethodSignature;
@@ -65,6 +65,21 @@ public class LoggingAspect {
         System.out.println("methodSignature.getMethod() = " + methodSignature.getMethod());
         System.out.println("methodSignature.getReturnType() = " + methodSignature.getReturnType());
         System.out.println("methodSignature.getName() = " + methodSignature.getName());
+
+        if (methodSignature.getName().equals("addBook")) {
+            Object[] arguments = joinPoint.getArgs();
+            for (Object item : arguments) {
+                if (item instanceof Book) {
+                    Book myBook = (Book) item;
+                    System.out.println("Информация о книге: название - " +
+                            myBook.getName() + ", автор - " +
+                            myBook.getAuthor() + ", год издания - " +
+                            myBook.getYearOfPublication());
+                } else if (item instanceof String) {
+                    System.out.println("Книгу в библиотеку добавляет " + item);
+                }
+            }
+        }
 
         System.out.println("beforeAddLoggingAdvice: логирование попытки получить книгу/журнал");
         System.out.println("--------------------------------------------------------------------------");
