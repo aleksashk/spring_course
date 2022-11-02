@@ -33,10 +33,17 @@ public class Test1 {
 //            session.getTransaction().commit();
 //            System.out.println("\nDONE!!!");
 
+//            session.beginTransaction();
+//            Employee employee = session.get(Employee.class, 1);
+//            System.out.println(employee);
+//            System.out.println(employee.getDepartment());
+//
+//            session.getTransaction().commit();
+//            System.out.println("\nDONE!!!");
+
             session.beginTransaction();
             Employee employee = session.get(Employee.class, 1);
-            System.out.println(employee);
-            System.out.println(employee.getDepartment());
+            session.delete(employee);
 
             session.getTransaction().commit();
             System.out.println("\nDONE!!!");
