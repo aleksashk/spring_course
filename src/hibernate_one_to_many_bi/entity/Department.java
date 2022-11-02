@@ -26,7 +26,7 @@ public class Department {
     @Column(name = "max_salary")
     private int maxSalary;
 
-    @Column(name = "mix_salary")
+    @Column(name = "min_salary")
     private int minSalary;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "department")
