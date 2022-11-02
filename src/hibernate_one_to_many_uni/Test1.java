@@ -25,13 +25,13 @@ public class Test1 {
 //            session.beginTransaction();
 //            session.save(department);
 
-            session.beginTransaction();
-            Department department = session.get(Department.class, 2);
-            System.out.println(department);
-            System.out.println(department.getEmps());
-
-            session.getTransaction().commit();
-            System.out.println("\nDONE!!!");
+//            session.beginTransaction();
+//            Department department = session.get(Department.class, 2);
+//            System.out.println(department);
+//            System.out.println(department.getEmps());
+//
+//            session.getTransaction().commit();
+//            System.out.println("\nDONE!!!");
 
 //            session.beginTransaction();
 //            Employee employee = session.get(Employee.class, 1);
@@ -41,9 +41,9 @@ public class Test1 {
 //            session.getTransaction().commit();
 //            System.out.println("\nDONE!!!");
 //*************************************************************************
-//            session.beginTransaction();
-//            Employee employee = session.get(Employee.class, 4);
-//            session.delete(employee);
+            session.beginTransaction();
+            Department department = session.get(Department.class, 2);
+            session.delete(department);
 
             session.getTransaction().commit();
             System.out.println("\nDONE!!!");
