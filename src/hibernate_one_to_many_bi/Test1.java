@@ -40,9 +40,9 @@ public class Test1 {
 //
 //            session.getTransaction().commit();
 //            System.out.println("\nDONE!!!");
-
+//*************************************************************************
             session.beginTransaction();
-            Employee employee = session.get(Employee.class, 1);
+            Employee employee = session.get(Employee.class, 4);
             session.delete(employee);
 
             session.getTransaction().commit();
