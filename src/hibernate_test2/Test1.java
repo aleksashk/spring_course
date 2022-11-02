@@ -13,7 +13,8 @@ public class Test1 {
                 .configure("hibernate.cfg.xml")
                 .addAnnotatedClass(Employee.class)
                 .addAnnotatedClass(Detail.class)
-                .buildSessionFactory()) {
+                .buildSessionFactory();
+        Session session = factory.getCurrentSession();) {
 //            Session session = factory.getCurrentSession();
 //
 //            Employee employee = new Employee("Aleks", "Philimonov", "IT", 400);
@@ -39,8 +40,6 @@ public class Test1 {
 //
 //            session.getTransaction().commit();
 //            System.out.println("\nDONE!!!");
-
-            Session session = factory.getCurrentSession();
 
             session.beginTransaction();
             Employee emp = session.get(Employee.class, 10);
