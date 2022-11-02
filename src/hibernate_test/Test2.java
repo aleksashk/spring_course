@@ -7,13 +7,12 @@ import org.hibernate.cfg.Configuration;
 
 public class Test2 {
     public static void main(String[] args) {
-        SessionFactory factory = new Configuration()
+
+        try (SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")
                 .addAnnotatedClass(Employee.class)
-                .buildSessionFactory();
-
-        Session session;
-        try {
+                .buildSessionFactory()) {
+            Session session;
             session = factory.getCurrentSession();
 
             Employee emp = new Employee("Oleg", "Gagarin", "HR", 700);
@@ -31,8 +30,6 @@ public class Test2 {
             System.out.println(employee);
 
             System.out.println("Done!!!");
-        } finally {
-            factory.close();
         }
     }
 }
