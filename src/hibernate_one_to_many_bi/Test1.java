@@ -29,8 +29,11 @@ public class Test1 {
 //*************************************************************************
 
             session.beginTransaction();
-            Department department = session.get(Department.class, 1);
+            System.out.println("Get department: ");
+            Department department = session.get(Department.class, 4);
+            System.out.println("Show department");
             System.out.println(department);
+            System.out.println("Show employees of the department");
             System.out.println(department.getEmps());
 
             session.getTransaction().commit();
