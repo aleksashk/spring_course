@@ -16,14 +16,19 @@ public class Test1 {
                 .buildSessionFactory();
              Session session = factory.getCurrentSession()) {
 
-            Department department = new Department("IT", 300, 1200);
-            Employee emp1 = new Employee("Aleksandr", "Philimonov", 800);
-            Employee emp2 = new Employee("Olga", "Smirnova", 1000);
+//            Department department = new Department("IT", 300, 1200);
+//            Employee emp1 = new Employee("Aleksandr", "Philimonov", 800);
+//            Employee emp2 = new Employee("Olga", "Smirnova", 1000);
+//
+//            department.addEmployeeToDepartment(emp1);
+//            department.addEmployeeToDepartment(emp2);
+//            session.beginTransaction();
+//            session.save(department);
 
-            department.addEmployeeToDepartment(emp1);
-            department.addEmployeeToDepartment(emp2);
             session.beginTransaction();
-            session.save(department);
+            Department department = session.get(Department.class, 1);
+            System.out.println(department);
+            System.out.println(department.getEmps());
 
             session.getTransaction().commit();
             System.out.println("\nDONE!!!");
