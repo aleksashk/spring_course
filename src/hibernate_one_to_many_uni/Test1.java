@@ -42,7 +42,7 @@ public class Test1 {
 //            System.out.println("\nDONE!!!");
 //*************************************************************************
             session.beginTransaction();
-            Department department = session.get(Department.class, 2);
+            Department department = session.get(Department.class, 3);
             session.delete(department);
 
             session.getTransaction().commit();
