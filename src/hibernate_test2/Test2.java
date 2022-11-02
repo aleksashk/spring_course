@@ -16,14 +16,11 @@ public class Test2 {
                 .buildSessionFactory();
              Session session = factory.getCurrentSession();) {
 
-            Employee employee = new Employee("Helga", "Kalistratova", "SALE", 45435);
-            Detail detail = new Detail("NEW-York", "5654654654654", "khalisi@mail.ru");
-
-            employee.setEmpDetail(detail);
-            detail.setEmployee(employee);
             session.beginTransaction();
 
-            session.save(detail);
+            Detail detail = session.get(Detail.class, 4);
+            System.out.println(detail.getEmployee());
+            session.delete(detail);
 
             session.getTransaction().commit();
             System.out.println("\nDONE!!!");
