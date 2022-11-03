@@ -28,9 +28,9 @@ public class Child {
     @Column(name = "age")
     private int age;
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.DETACH})
     @JoinTable(
-            name="child_section",
+            name = "child_section",
             joinColumns = @JoinColumn(name = "child_id"),
             inverseJoinColumns = @JoinColumn(name = "section_id")
     )
