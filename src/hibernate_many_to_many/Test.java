@@ -51,10 +51,21 @@ public class Test {
 //            System.out.println("DONE!!!");
             //*******************************************************************************
 
+//            session.beginTransaction();
+//            Section section = session.get(Section.class, 4);
+//            System.out.println(section);
+//            System.out.println(section.getChildren());
+//
+//            session.getTransaction().commit();
+//
+//            session.close();
+//            System.out.println("DONE!!!");
+
+            //***********************************************************************
             session.beginTransaction();
-            Section section = session.get(Section.class, 4);
-            System.out.println(section);
-            System.out.println(section.getChildren());
+            Child child = session.get(Child.class, 9);
+            System.out.println(child);
+            System.out.println(child.getSections());
 
             session.getTransaction().commit();
 
