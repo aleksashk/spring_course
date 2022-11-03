@@ -33,17 +33,28 @@ public class Test {
 //            session.close();
 //            System.out.println("DONE!!!");
             //*******************************************************************************
-            Section section1 = new Section("Volleyball");
-            Section section2 = new Section("Chess");
-            Section section3 = new Section("Hokey");
-            Child child1 = new Child("Aleksey", 5);
-
-            child1.addSectionToChild(section1);
-            child1.addSectionToChild(section2);
-            child1.addSectionToChild(section3);
+//            Section section1 = new Section("Volleyball");
+//            Section section2 = new Section("Chess");
+//            Section section3 = new Section("Hokey");
+//            Child child1 = new Child("Aleksey", 5);
+//
+//            child1.addSectionToChild(section1);
+//            child1.addSectionToChild(section2);
+//            child1.addSectionToChild(section3);
+//
+//            session.beginTransaction();
+//            session.save(child1);
+//
+//            session.getTransaction().commit();
+//
+//            session.close();
+//            System.out.println("DONE!!!");
+            //*******************************************************************************
 
             session.beginTransaction();
-            session.save(child1);
+            Section section = session.get(Section.class, 4);
+            System.out.println(section);
+            System.out.println(section.getChildren());
 
             session.getTransaction().commit();
 
