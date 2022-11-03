@@ -60,9 +60,19 @@ public class Test {
 //            System.out.println("DONE!!!");
 
             //***********************************************************************
+//            session.beginTransaction();
+//            Section section = session.get(Section.class, 10);
+//            session.delete(section);
+//
+//            session.getTransaction().commit();
+//
+//            session.close();
+//            System.out.println("DONE!!!");
+
+            //***********************************************************************
             session.beginTransaction();
-            Section section = session.get(Section.class, 10);
-            session.delete(section);
+            Child child = session.get(Child.class, 18);
+            session.delete(child);
 
             session.getTransaction().commit();
 
