@@ -14,24 +14,19 @@ public class Test {
                 .addAnnotatedClass(Section.class)
                 .buildSessionFactory();
              Session session = sessionFactory.getCurrentSession()) {
-            Section section1 = new Section("Football");
-            Child child1 = new Child("Aleksandr", 4);
-            Child child2 = new Child("Andrey", 3);
-            Child child3 = new Child("Nicolay", 5);
-            Child child4 = new Child("Dmitry", 6);
-
-            session.beginTransaction();
-            session.save(section1);
+            Section section1 = new Section("Dance");
+            Child child1 = new Child("Valeria", 14);
+            Child child2 = new Child("Nicol", 13);
+            Child child3 = new Child("Elisabeth", 15);
+            Child child4 = new Child("Victory", 11);
 
             section1.addChildToSection(child1);
             section1.addChildToSection(child2);
             section1.addChildToSection(child3);
             section1.addChildToSection(child4);
 
-            session.save(child1);
-            session.save(child2);
-            session.save(child3);
-            session.save(child4);
+            session.beginTransaction();
+            session.persist(section1);
 
             session.getTransaction().commit();
             System.out.println("DONE!!!");
