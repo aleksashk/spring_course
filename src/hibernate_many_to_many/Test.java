@@ -63,7 +63,7 @@ public class Test {
 
             //***********************************************************************
             session.beginTransaction();
-            Child child = session.get(Child.class, 9);
+            Child child = session.get(Child.class, 13);
             System.out.println(child);
             System.out.println(child.getSections());
 
