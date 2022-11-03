@@ -22,7 +22,7 @@ public class Section {
     @Column(name = "id")
     private int id;
 
-    @Column(name = "id")
+    @Column(name = "name")
     private String name;
 
     @ManyToMany(cascade = CascadeType.ALL)
