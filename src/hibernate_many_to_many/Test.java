@@ -20,7 +20,14 @@ public class Test {
             Child child3 = new Child("Nicolay", 5);
             Child child4 = new Child("Dmitry", 6);
 
+            section1.addChildToSection(child1);
+            section1.addChildToSection(child2);
+            section1.addChildToSection(child3);
+            section1.addChildToSection(child4);
+
             session.beginTransaction();
+
+
 
             session.close();
 
