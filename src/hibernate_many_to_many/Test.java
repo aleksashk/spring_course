@@ -14,10 +14,13 @@ public class Test {
                 .addAnnotatedClass(Section.class)
                 .buildSessionFactory();
              Session session = sessionFactory.getCurrentSession()) {
-
+            Section section1 = new Section("Football");
+            Child child1 = new Child("Aleksandr", 4);
+            Child child2 = new Child("Andrey", 3);
+            Child child3 = new Child("Nicolay", 5);
+            Child child4 = new Child("Dmitry", 6);
 
             session.beginTransaction();
-
 
             session.close();
 
