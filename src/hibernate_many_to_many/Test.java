@@ -20,13 +20,18 @@ public class Test {
             Child child3 = new Child("Nicolay", 5);
             Child child4 = new Child("Dmitry", 6);
 
+            session.beginTransaction();
+            session.save(section1);
+
             section1.addChildToSection(child1);
             section1.addChildToSection(child2);
             section1.addChildToSection(child3);
             section1.addChildToSection(child4);
 
-            session.beginTransaction();
-            session.save(section1);
+            session.save(child1);
+            session.save(child2);
+            session.save(child3);
+            session.save(child4);
 
             session.getTransaction().commit();
             System.out.println("DONE!!!");
